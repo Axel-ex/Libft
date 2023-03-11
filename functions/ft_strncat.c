@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:27:41 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/01 17:10:30 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/11 16:35:34 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 char	*ft_strncat(char *dest, char *src, int n)
 {
-	int	i;
-	int	j;
+	char	*origin;
 
-	j = ft_strlen(dest);
-	while (src[i] && i < n)
+	origin = dest;
+	while (*dest)
+		dest++;
+	while (*src && n)
 	{
-		dest[j + i] = src[i];
-		i++;
+		*dest++ = *src++;
+		n--;
 	}
-	dest[j + i] = '\0';
-	return (dest);
+	*dest = '\0';
+	return (origin);
 }

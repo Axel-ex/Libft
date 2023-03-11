@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:26:50 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/01 17:02:55 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/11 16:27:39 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ int	ft_strcmp(char *s1, char *s2)
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-	return (s1[i] - s2[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

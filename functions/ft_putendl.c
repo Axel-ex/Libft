@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:00:29 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/10 15:20:07 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/11 16:45:18 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	ft_putendl(char const *s)
 {
-	while (*s++)
+	while (*s)
+	{
 		ft_putchar(*s);
+		s++;
+	}
 	ft_putchar('\n');
 }

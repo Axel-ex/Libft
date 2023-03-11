@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 18:21:21 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/01 18:24:26 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/11 16:16:28 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 char	*ft_strdup(char *str)
 {
-	int		i;
 	char	*cpy;
+	char	*origin;
 
 	cpy = (char *)malloc(sizeof(*cpy) * (ft_strlen(str) + 1));
 	if (!cpy)
 		return (0);
-	while (str[i])
-	{
-		cpy[i] = str[i];
-		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
+	origin = cpy;
+	while (*str)
+		*cpy++ = *str++;
+	*cpy = '\0';
+	return (origin);
 }

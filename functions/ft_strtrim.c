@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 10:09:48 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/06 13:42:40 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/11 15:26:29 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,17 @@ char	*ft_strtrim(char const *s)
 	char	*origin;
 
 	start = 0;
-	while (is_space(s[start]) == 1)
+	while (*s && is_space(s[start]) == 1)
 		start++;
 	end = ft_strlen(s) - 1;
+	if (!s && start == end)
+		return (0);
 	while (is_space(s[end]) == 1)
 		end--;
 	size = end - start + 1;
 	trimed = (char *)malloc(sizeof(*trimed) * (size + 1));
+	if (!trimed)
+		return (0);
 	origin = trimed;
 	while (size--)
 		*trimed++ = s[start++];

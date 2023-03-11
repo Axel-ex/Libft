@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:26:21 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/01 17:02:26 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/11 16:23:19 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ char	*ft_strcat(char *dest, char *src)
 		dest[j + i] = src[i];
 		i++;
 	}
+	dest[i + j] = '\0';
 	return (dest);
 }

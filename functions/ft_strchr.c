@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:28:39 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/03 11:38:19 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/11 14:59:35 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	while (*str++)
+	while (*str)
 	{
 		if (*str == c)
 			return ((char *)str);
+		str++;
 	}
 	return (NULL);
 }
