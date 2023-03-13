@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 18:06:04 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/10 15:22:56 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/13 14:00:04 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 int		ft_strequ(char *s1, char *s2);
 int		ft_strnequ(char *s1, char *s2, size_t n);
-char	*ft_strsub(const char *s, unsigned int start, size_t size);
+char	*ft_substr(const char *s, unsigned int start, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
-char	**ft_strsplit(char const *s, char c);
+char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
@@ -69,5 +69,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	*ft_calloc(size_t element_count, size_t element_size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif

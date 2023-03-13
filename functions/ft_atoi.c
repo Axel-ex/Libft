@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:25:35 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/01 18:18:30 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/13 10:39:56 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 int	ft_atoi(char *str)
 {
-	int	i;
 	int	sign;
 	int	nb;
 
-	i = 0;
 	sign = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	nb = 0;
+	while ((*str >= '\t' && *str <= '\r') || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign = -sign;
-		i++;
+		str++;
 	}
-	while (ft_isdigit(str[i]) == 1)
+	while (ft_isdigit(*str) == 1)
 	{
 		nb *= 10;
-		nb = str[i] - '0';
-		i++;
+		nb += *str - '0';
+		str++;
 	}
 	return (nb * sign);
 }

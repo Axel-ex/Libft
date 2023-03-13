@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 11:28:39 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/13 14:11:10 by axelc            ###   ########.fr       */
+/*   Created: 2023/03/13 10:26:51 by axelc             #+#    #+#             */
+/*   Updated: 2023/03/13 10:29:17 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_strchr(const char *str, int c)
+int	ft_atoi(char *str);
+
+int	main(int argc, char **argv)
 {
-	while (*str)
-	{
-		if (*str == c)
-			return ((char *)str);
-		str++;
-	}
-	if (*str == c)
-		return ((char *)str);
-	return (NULL);
+	int	nb = ft_atoi(argv[1]);
+	int nb2 = atoi(argv[2]);
+	printf("mine: %d\n", nb);
+	printf("original: %d\n", nb2);
+	return (0);
 }

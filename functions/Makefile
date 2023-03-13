@@ -14,21 +14,22 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror 
 
-.c.o: 
-	${CC} ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
+%.o: %.c
+	${CC} ${CFLAGS} -I includes -c $< -o $@
+
+${NAME}: ${OBJS}
+	ar rcs ${NAME} ${OBJS}
+	@echo "${GREEN}${NAME} was created ${RESET}"
+
+all: ${NAME}
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
 	gcc -nostartfiles -shared -o libft.so $(OBJS)
-
-${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
-	@echo "${CYAN}${NAME} was created ${RESET}"
-
-all: ${NAME}
-
+	
 clean:
 	rm -rf ${OBJS}
+	@echo "${YELLOW}All objects files were deleted ${RESET}"
 
 fclean: clean
 	rm -rf {NAME}

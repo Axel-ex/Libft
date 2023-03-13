@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 09:29:52 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/06 09:33:03 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/13 11:17:19 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 #include <stdlib.h>
 #include <string.h>
 
-char	*ft_strsub(const char *s, unsigned int start, size_t size);
+char	*ft_substr(const char *s, unsigned int start, size_t size);
 
-int main(void)
+int main(int argc, char **argv)
 {
-	char	*str = "this is a string";
-	printf("%s", ft_strsub(str, 5, sizeof(char) * strlen(str)));
+	if (argc != 4)
+	{
+		printf("1st arg: str\n2nd arg star\n3d arg size\n");
+		return (0);
+	}
+	char	*str = argv[1];
+	int		start = atoi(argv[2]);
+	int		size = atoi(argv[3]);
+	printf("%s", ft_substr(str, start, size));
 	return (0);
 }

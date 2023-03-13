@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 09:16:19 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/06 09:35:33 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/13 11:25:02 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(const char *s, unsigned int start, size_t size)
+char	*ft_substr(const char *s, unsigned int start, size_t size)
 {
 	char	*sub;
 	char	*origin;
-	int		sub_size;
 
-	sub_size = size - start;
 	if (!s)
 		return (NULL);
-	sub = (char *)malloc(sizeof(*sub) * (sub_size + 1));
+	sub = (char *)malloc(sizeof(*sub) * (size + 1));
 	if (!sub)
 		return (NULL);
+	if (start >= (unsigned int)ft_strlen(s))
+	{
+		*sub = '\0';
+		return (sub);
+	}
 	origin = sub;
-	while (sub_size--)
+	while (size--)
 		*sub++ = s[start++];
 	*sub = '\0';
 	return (origin);

@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 14:31:52 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/03 10:52:38 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/12 09:42:09 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	if (dest > src)
 	{
 		while (n--)
+		{
 			*((char *)dest + n) = *((char *)src + n);
+		}
 	}
 	else
 	{
