@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:54:00 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/13 10:51:58 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/14 14:33:18 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	i = 0;
-	split = (char **)malloc(sizeof(*split) * (ft_countwords(s, c) +1));
+	split = (char **)malloc(sizeof(*split) * (ft_countwords(s, c) + 1));
 	if (!split)
 		return (NULL);
 	while (*s)
