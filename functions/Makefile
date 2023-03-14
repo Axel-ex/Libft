@@ -4,9 +4,9 @@ SRCS = ${wildcard *.c}
 
 OBJS = ${SRCS:.c=.o}
 
-RED =  \033[0;31m
-GREEN = \033[0;32m
-YELLOW = \033[0;33m
+RED =  \033[38;5;196m
+GREEN = \033[38;5;47m
+YELLOW = \033[38;5;226m
 CYAN = \033[0;36m
 RESET = \033[0m
 

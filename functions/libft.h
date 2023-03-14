@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 18:06:04 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/13 14:00:04 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/14 11:19:05 by axelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 void	*ft_memset(void *str, int c, size_t n);
 void	ft_bzero(void *str, size_t n);
@@ -30,7 +36,7 @@ char	*ft_strcpy(char *dest, char *src);
 char	*ft_strncpy(char *dest, char *src, size_t n);
 char	*ft_strcat(char *dest, char *src);
 char	*ft_strncat(char *dest, char *src, int n);
-int		ft_strlcat(char *dest, char *src, size_t n);
+int		ft_strlcat(char *dest, char *src, unsigned int size);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strstr(char *str, char *to_find);
@@ -71,5 +77,11 @@ void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	*ft_calloc(size_t element_count, size_t element_size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 #endif
