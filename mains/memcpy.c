@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:56:30 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/02 23:04:40 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/28 13:42:50 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
+		printf("enter a string to copy");
 		return (0);
 	}
 	char	*src;

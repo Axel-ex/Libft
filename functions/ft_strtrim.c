@@ -3,47 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
+/*   By: axel <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 10:09:48 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/13 11:54:50 by axelc            ###   ########.fr       */
+/*   Created: 2023/03/28 14:07:11 by axel              #+#    #+#             */
+/*   Updated: 2023/03/28 15:01:20 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_space(char c)
+static int	ft_isset(char c, char const *set)
 {
-	if (c == ' ' || c == '\t' || c == '\n')
-		return (1);
+	while (*set)
+	{
+		if (*set == c)
+			return (1);
+		set++;
+	}
 	return (0);
 }
 
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(char *s1, char const *set)
 {
-	int		start;
-	int		end;
-	int		size;
-	char	*trimed;
+	char	*cpy;
 	char	*origin;
+	int		size;
 
-	start = 0;
-	while (*s && is_space(s[start]) == 1)
-		start++;
-	end = ft_strlen(s) - 1;
-	if (!s)
-		return (0);
-	if (start == end + 1)
-		return ("\0");
-	while (is_space(s[end]) == 1)
-		end--;
-	size = end - start + 1;
-	trimed = (char *)malloc(sizeof(*trimed) * (size + 1));
-	if (!trimed)
-		return (0);
-	origin = trimed;
+	size = 0;
+	while (*s1 && ft_isset(*s1, set) == 1)
+		s1++;
+	origin = s1;
+	while (*s1)
+	{
+		size++;
+		s1++;
+	}
+	s1--;
+	while (ft_isset(*s1--, set) == 1)
+		size--;
+	s1 = origin;
+	cpy = (char *)malloc(sizeof(*cpy) * size + 1);
+	origin = cpy;
 	while (size--)
-		*trimed++ = s[start++];
-	*trimed = '\0';
+		*cpy++ = *s1++;
+	*cpy = '\0';
 	return (origin);
 }
