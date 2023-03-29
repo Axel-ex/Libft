@@ -6,11 +6,16 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:04:06 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/07 09:07:24 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/29 13:42:49 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_putnbr(int n)
 {

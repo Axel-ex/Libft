@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:24:45 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/13 14:30:58 by axelc            ###   ########.fr       */
+/*   Updated: 2023/03/29 14:04:52 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
+	if (!size)
+		return (ft_strlen(src));
 	i = 0;
 	while (i < size - 1 && src[i] != '\0')
 	{
