@@ -78,7 +78,7 @@ clean:
 	@echo "${YELLOW}All objects files were deleted ${RESET}"
 
 fclean: clean
-	rm -rf {NAME}
+	rm -rf ${NAME}
 	@echo "${RED}${NAME} was deleted ${RESET}"
 
 re: fclean all
