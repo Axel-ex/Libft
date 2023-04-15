@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 19:04:20 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/14 14:31:57 by axelc            ###   ########.fr       */
+/*   Updated: 2023/04/15 16:56:44 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	if (s != NULL || f != NULL)
 	{
 		while (*s)
-		{
 			f(i++, s++);
-		}
 	}
 }
