@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:35:35 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/11 17:38:44 by axelc            ###   ########.fr       */
+/*   Updated: 2023/04/16 23:10:31 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	if (n == 0 || dest == src)
 		return (dest);
 	origin_dest = dest;
-	while (n)
-	{
+	while (n--)
 		*((char *)dest++) = *((char *)src++);
-		n--;
-	}
 	return (origin_dest);
 }
