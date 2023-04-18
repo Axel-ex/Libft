@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:04:21 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/14 14:51:48 by axelc            ###   ########.fr       */
+/*   Updated: 2023/04/18 17:01:36 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*ptr;
+	t_list	*next;
+	t_list	*current;
 
-	ptr = *lst;
-	while (ptr)
+	current = *lst;
+	while (current)
 	{
-		ft_lstdelone(ptr, del);
-		ptr = ptr->next;
+		next = current->next;
+		ft_lstdelone(current, del);
+		current = next;
 	}
 	*lst = NULL;
 }

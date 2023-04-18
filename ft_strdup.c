@@ -6,13 +6,13 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 18:21:21 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/11 16:16:28 by axelc            ###   ########.fr       */
+/*   Updated: 2023/04/18 16:34:49 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *str)
+char	*ft_strdup(char const *str)
 {
 	char	*cpy;
 	char	*origin;

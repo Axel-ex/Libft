@@ -5,47 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: axel <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 14:07:11 by axel              #+#    #+#             */
-/*   Updated: 2023/03/28 15:01:20 by axel             ###   ########.fr       */
+/*   Created: 2023/04/18 16:15:35 by axel              #+#    #+#             */
+/*   Updated: 2023/04/18 16:35:05 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isset(char c, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	while (*set)
-	{
-		if (*set == c)
-			return (1);
-		set++;
-	}
-	return (0);
-}
+	int		start;
+	int		end;
+	char	*str;
 
-char	*ft_strtrim(char *s1, char const *set)
-{
-	char	*cpy;
-	char	*origin;
-	int		size;
-
-	size = 0;
-	while (*s1 && ft_isset(*s1, set) == 1)
-		s1++;
-	origin = s1;
-	while (*s1)
-	{
-		size++;
-		s1++;
-	}
-	s1--;
-	while (ft_isset(*s1--, set) == 1)
-		size--;
-	s1 = origin;
-	cpy = (char *)malloc(sizeof(*cpy) * size + 1);
-	origin = cpy;
-	while (size--)
-		*cpy++ = *s1++;
-	*cpy = '\0';
-	return (origin);
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (ft_strchr(set, s1[start]) && start <= end)
+		start++;
+	if (start > end)
+		return (ft_strdup(s1 + end + 1));
+	while (ft_strchr(set, s1[end]) && end >= 0)
+		end--;
+	str = malloc(end - start + 2);
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, &s1[start], end - start + 2);
+	return (str);
 }
