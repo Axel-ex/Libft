@@ -60,7 +60,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror 
 
 %.o: %.c
-	${CC} ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS}
@@ -83,4 +83,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re cofee
+.PHONY: all clean fclean re
