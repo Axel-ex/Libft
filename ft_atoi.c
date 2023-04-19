@@ -6,32 +6,32 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:25:35 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/13 10:39:56 by axelc            ###   ########.fr       */
+/*   Updated: 2023/04/19 09:30:49 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *nptr)
 {
 	int	sign;
 	int	nb;
 
 	sign = 1;
 	nb = 0;
-	while ((*str >= '\t' && *str <= '\r') || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
+	while ((*nptr >= '\t' && *nptr <= '\r') || *nptr == ' ')
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		if (*str == '-')
+		if (*nptr == '-')
 			sign = -sign;
-		str++;
+		nptr++;
 	}
-	while (ft_isdigit(*str) == 1)
+	while (ft_isdigit(*nptr) == 1)
 	{
 		nb *= 10;
-		nb += *str - '0';
-		str++;
+		nb += *nptr - '0';
+		nptr++;
 	}
 	return (nb * sign);
 }

@@ -6,13 +6,13 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:44:03 by axelc             #+#    #+#             */
-/*   Updated: 2023/04/16 23:16:40 by axel             ###   ########.fr       */
+/*   Updated: 2023/04/19 10:40:33 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	while (*s)
 		write(fd, s++, 1);

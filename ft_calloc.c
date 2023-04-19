@@ -6,19 +6,19 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:06:29 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/13 13:20:47 by axelc            ###   ########.fr       */
+/*   Updated: 2023/04/19 09:33:00 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t element_count, size_t element_size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
-	ptr = malloc(element_size * element_count);
+	ptr = malloc(size * nmemb);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, element_count);
+	ft_bzero(ptr, nmemb);
 	return (ptr);
 }

@@ -6,21 +6,21 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:28:39 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/13 14:11:10 by axelc            ###   ########.fr       */
+/*   Updated: 2023/04/19 09:35:05 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	while (*str)
+	while (*s)
 	{
-		if (*str == c)
-			return ((char *)str);
-		str++;
+		if (*s == c)
+			return ((char *)s);
+		s++;
 	}
-	if (*str == c)
-		return ((char *)str);
+	if (*s == c)
+		return ((char *)s);
 	return (NULL);
 }
