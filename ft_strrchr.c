@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:35:23 by axelc             #+#    #+#             */
-/*   Updated: 2023/04/19 09:34:11 by axel             ###   ########.fr       */
+/*   Updated: 2023/04/19 13:54:59 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	ptr = NULL;
 	while (*s != '\0')
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			ptr = (char *)s;
 		s++;
 	}

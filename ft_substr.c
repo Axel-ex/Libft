@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 09:16:19 by axelc             #+#    #+#             */
-/*   Updated: 2023/04/19 10:49:14 by axel             ###   ########.fr       */
+/*   Updated: 2023/04/19 14:34:05 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (sub);
 	}
 	origin = sub;
-	while (len--)
+	while (s[start] && len--)
 		*sub++ = s[start++];
 	*sub = '\0';
 	return (origin);

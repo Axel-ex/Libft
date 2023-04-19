@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:06:29 by axelc             #+#    #+#             */
-/*   Updated: 2023/04/19 09:33:00 by axel             ###   ########.fr       */
+/*   Updated: 2023/04/19 13:58:29 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ptr = malloc(size * nmemb);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, nmemb);
+	ft_memset(ptr, 0, size * nmemb);
 	return (ptr);
 }
