@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:27:19 by axelc             #+#    #+#             */
-/*   Updated: 2023/04/19 10:38:36 by axel             ###   ########.fr       */
+/*   Updated: 2023/04/19 12:00:19 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (size > dest_len)
 		lengths = dest_len + src_len;
 	else
-		lengths = src_len + size;
+		return (lengths = src_len + size);
 	while (src[i] != '\0' && (dest_len + 1) < size)
 	{
 		dst[dest_len] = src[i];
