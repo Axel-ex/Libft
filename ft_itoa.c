@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:11:01 by axelc             #+#    #+#             */
-/*   Updated: 2023/04/19 14:08:07 by axel             ###   ########.fr       */
+/*   Updated: 2023/04/20 17:41:16 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	count_nb(long nb)
 	int	count;
 
 	count = 0;
+	if (nb == 0)
+		return (1);
 	if (nb < 0)
 	{
 		nb = -nb;
@@ -28,6 +30,12 @@ static int	count_nb(long nb)
 		count++;
 	}
 	return (count);
+}
+
+static char	*if_zero(char *str)
+{
+	str[0] = '0';
+	return (str);
 }
 
 char	*ft_itoa(int n)
@@ -43,7 +51,7 @@ char	*ft_itoa(int n)
 		return (NULL);
 	res[i--] = '\0';
 	if (nb == 0)
-		return ("0");
+		return (if_zero(res));
 	if (nb < 0)
 	{
 		res[0] = '-';
