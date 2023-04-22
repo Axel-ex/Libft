@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_splitWALTER.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
+/*   By: axel <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 13:54:00 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/14 14:33:18 by axelc            ###   ########.fr       */
+/*   Created: 2023/04/22 10:32:56 by axel              #+#    #+#             */
+/*   Updated: 2023/04/22 11:00:15 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(char c, char delim)
-{
-	if (c == delim)
-		return (1);
-	return (0);
-}
-
-static int	ft_countwords(char const *s, char delim)
+static int	ft_countwords(char const *s, char c)
 {
 	int	counts;
 	int	i;
@@ -30,64 +23,58 @@ static int	ft_countwords(char const *s, char delim)
 	{
 		if (i == 0)
 		{
-			if (ft_isspace(s[i], delim) == 0)
+			if (s[i] != c)
 				counts++;
 		}
-		if (ft_isspace(s[i], delim) == 0 && ft_isspace(s[i - 1], delim) == 1)
+		else if (s[i] != c && s[i - 1] == c)
 			counts++;
 		i++;
 	}
 	return (counts);
 }
 
-int	ft_wordlen(char const *s, char delim)
+static char	*word_dup(const char *s, char c)
 {
-	int	i;
+	char	*word;
+	int		i;
 
 	i = 0;
-	while (s[i] && ft_isspace(s[i], delim) != 1)
+	while (s[i] && s[i] != c)
 		i++;
-	return (i);
-}
-
-char	*ft_worddup(char const *s, char delim)
-{
-	char	*dup;
-	char	*origin;
-	int		size;
-
-	size = ft_wordlen(s, delim);
-	dup = (char *)malloc(sizeof(*dup) * (size + 1));
-	if (!dup)
-		return (0);
-	origin = dup;
-	while (size--)
-		*dup++ = *s++;
-	*dup = '\0';
-	return (origin);
+	word = (char *)malloc(sizeof(char) * (i + 1));
+	if (!word)
+		return (NULL);
+	i = 0;
+	while (s[i] && s[i] != c)
+	{
+		word[i] = s[i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		i;
+	int		j;
 
-	i = 0;
-	split = (char **)malloc(sizeof(*split) * (ft_countwords(s, c) + 1));
-	if (!split)
+	j = 0;
+	split = (char **)malloc(sizeof (char *) * (ft_countwords(s, c) + 1));
+	if (!split || !s)
 		return (NULL);
 	while (*s)
 	{
-		while (*s && ft_isspace(*s, c) == 1)
-			s++;
-		if (*s)
+		if (*s != c)
 		{
-			split[i] = ft_worddup(s, c);
-			i++;
+			split[j] = word_dup(s, c);
+			while (*s && *s != c)
+				s++;
+			j++;
 		}
-		while (*s && ft_isspace(*s, c) == 0)
+		else
 			s++;
 	}
-	split[i] = 0;
+	split[j] = 0;
 	return (split);
 }
