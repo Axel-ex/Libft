@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lastadd_back.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
+/*   By: axel <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 22:45:17 by axelc             #+#    #+#             */
-/*   Updated: 2023/03/14 14:34:50 by axelc            ###   ########.fr       */
+/*   Created: 2023/04/23 12:07:04 by axel              #+#    #+#             */
+/*   Updated: 2023/04/23 12:09:28 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*ptr;
+	t_list	*tmp;
 
-	ptr = *lst;
-	if (*lst == NULL)
-	{
-		*lst = new;
+	if (!lst || !new)
 		return ;
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		tmp = ft_lstlast(*lst);
+		tmp->next = new;
 	}
-	while (ptr->next)
-		ptr = ptr->next;
-	ptr->next = new;
-	new->next = NULL;
 }

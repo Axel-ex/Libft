@@ -6,7 +6,7 @@
 /*   By: axelc <achabrer@student.42porto.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 14:31:52 by axelc             #+#    #+#             */
-/*   Updated: 2023/04/16 23:14:19 by axel             ###   ########.fr       */
+/*   Updated: 2023/04/23 12:19:02 by axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char	*origin;
 
+	if (!dest && !src)
+		return (NULL);
 	origin = dest;
 	if (dest > src)
 	{
