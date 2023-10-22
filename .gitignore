@@ -1,9 +1,0 @@
-main.c
-a.out
-*test*
-.gitignore
-.vscode/
-libft.a
-.DS_Store
-mains/
-obj/
