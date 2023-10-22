@@ -1,48 +1,8 @@
-NAME = libft.a
+NAME		=	libft.a
 
-SRCS = ft_isalpha.c\
-	   ft_isdigit.c\
-	   ft_isalnum.c\
-	   ft_isascii.c\
-	   ft_isprint.c\
-	   ft_strlen.c\
-	   ft_memset.c\
-	   ft_bzero.c\
-	   ft_memcpy.c\
-	   ft_memmove.c\
-	   ft_strlcpy.c\
-	   ft_strlcat.c\
-	   ft_toupper.c\
-	   ft_tolower.c\
-	   ft_strchr.c\
-	   ft_strrchr.c\
-	   ft_strncmp.c\
-	   ft_memchr.c\
-	   ft_memcmp.c\
-	   ft_strnstr.c\
-	   ft_atoi.c\
-	   ft_calloc.c\
-	   ft_strdup.c\
-	   ft_substr.c\
-	   ft_strjoin.c\
-	   ft_strtrim.c\
-	   ft_split.c\
-	   ft_itoa.c\
-	   ft_strmapi.c\
-	   ft_striteri.c\
-	   ft_putchar_fd.c\
-	   ft_putstr_fd.c\
-	   ft_putendl_fd.c\
-	   ft_putnbr_fd.c\
-	   ft_lstnew.c\
-	   ft_lstadd_front.c\
-	   ft_lstsize.c\
-	   ft_lstlast.c\
-	   ft_lstadd_back.c\
-	   ft_lstdelone.c\
-	   ft_lstclear.c\
-	   ft_lstiter.c\
-	   ft_lstmap.c\
+SRC_DIR		=	srcs
+
+SRCS		=	$(wildcard $(SRC_DIR)/*.c)\
 	   get_next_line/get_next_line.c\
 	   get_next_line/get_next_line_utils.c\
 	   ft_printf/ft_printf.c\
@@ -52,7 +12,9 @@ SRCS = ft_isalpha.c\
        ft_printf/ft_printunsigned.c\
        ft_printf/ft_printhexa.c\
 
-OBJS = ${SRCS:.c=.o}
+OBJ_DIR		=	obj
+
+OBJ			=	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 RED =  \033[38;5;196m
 GREEN = \033[38;5;47m
@@ -60,26 +22,35 @@ YELLOW = \033[38;5;226m
 CYAN = \033[0;36m
 RESET = \033[0m
 
-CC = gcc
+FLAGS		= -Wall -Wextra -Werror
 
-CFLAGS = -Wall -Wextra -Werror
+GREEN		= \033[38;5;47m
+YELLOW		= \033[38;5;226m
+RED			= \033[38;5;196m
+RESET 		= \033[0m
 
-%.o: %.c
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	@cc $(FLAGS) -g -c $< -o $@
+	@echo "[$(GREEN)compiling$(RESET)]: $<"
 
-${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
-	@echo "${GREEN}${NAME} was created ${RESET}"
+all: $(NAME)
+	@echo "$(GREEN)$(NAME) created$(RESET)"
 
-all: ${NAME}
+${NAME}: ${OBJ}
+	@ar rcs ${NAME} ${OBJ}
+	@echo "[$(GREEN)compiling$(RESET)]: ft_printf"
+	@echo "[$(GREEN)compiling$(RESET)]: get_next_line"
+
+$(OBJ_DIR):
+	@mkdir obj/
 
 clean:
-	rm -rf ${OBJS} ${OBJBONUS}
-	@echo "${YELLOW}All objects files were deleted ${RESET}"
+	@rm -rf $(OBJ_DIR)
+	@echo "$(YELLOW)Removing objects files$(RESET)"
 
 fclean: clean
-	rm -rf ${NAME}
-	@echo "${RED}${NAME} was deleted ${RESET}"
+	@rm -rf $(NAME)
+	@echo "$(RED)removing $(NAME) executable$(RESET)"
 
 re: fclean all
 
