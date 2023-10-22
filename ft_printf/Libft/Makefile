@@ -33,26 +33,21 @@ SRCS = ft_isalpha.c\
 	   ft_putchar_fd.c\
 	   ft_putstr_fd.c\
 	   ft_putendl_fd.c\
-	   ft_putnbr_fd.c\
-	   ft_lstnew.c\
-	   ft_lstadd_front.c\
-	   ft_lstsize.c\
-	   ft_lstlast.c\
-	   ft_lstadd_back.c\
-	   ft_lstdelone.c\
-	   ft_lstclear.c\
-	   ft_lstiter.c\
-	   ft_lstmap.c\
-	   get_next_line/get_next_line.c\
-	   get_next_line/get_next_line_utils.c\
-	   ft_printf/ft_printf.c\
-	   ft_printf/ft_printnb.c\
-	   ft_printf/ft_printptr.c\
-       ft_printf/ft_printstr.c\
-       ft_printf/ft_printunsigned.c\
-       ft_printf/ft_printhexa.c\
+	   ft_putnbr_fd.c
+
+BONUS = ft_lstnew.c\
+		ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstiter.c\
+		ft_lstmap.c
 
 OBJS = ${SRCS:.c=.o}
+
+OBJBONUS = ${BONUS:.c=.o}
 
 RED =  \033[38;5;196m
 GREEN = \033[38;5;47m
@@ -62,7 +57,7 @@ RESET = \033[0m
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
@@ -71,7 +66,12 @@ ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS}
 	@echo "${GREEN}${NAME} was created ${RESET}"
 
+
 all: ${NAME}
+
+bonus: ${OBJBONUS}
+	ar rcs ${NAME} ${OBJBONUS}
+	@echo "${GREEN} bonus added to ${NAME} ${RESET}"
 
 clean:
 	rm -rf ${OBJS} ${OBJBONUS}
