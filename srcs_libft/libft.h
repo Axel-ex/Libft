@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 18:06:04 by axelc             #+#    #+#             */
-/*   Updated: 2023/11/01 17:25:41 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/11/01 17:45:57 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -300,27 +300,149 @@ char	*ft_itoa(int n);
  * @return char* string created from applicatio of f
  */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/**
+ * @brief applies a function pointed to by f to each elements
+ * of the string pointed to by s. 
+ * 
+ * @param s 
+ * @param f 
+ */
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+/**
+ * @brief puts a char in the file descriptor specified by fd.
+ * 
+ * @param c 
+ * @param fd 
+ */
 void	ft_putchar_fd(char c, int fd);
+
+/**
+ * @brief puts the string pointed to by s in the file descriptor
+ * specified by fd.
+ * 
+ * @param c 
+ * @param fd 
+ */
 void	ft_putstr_fd(char *s, int fd);
+
+/**
+ * @brief puts the string pointed to by s followd by a new line
+ * in the file descriptor specified by fd.
+ * 
+ * @param c 
+ * @param fd 
+ */
 void	ft_putendl_fd(char *s, int fd);
+
+/**
+ * @brief puts the int in the file descriptor specified by fd.
+ * 
+ * @param c 
+ * @param fd 
+ */
 void	ft_putnbr_fd(int n, int fd);
 
 /*BONUS*/
+/**
+ * @brief creates a new node of a list and returns it.
+ * 
+ * @param content 
+ * @return t_list* 
+ */
 t_list	*ft_lstnew(void *content);
+
+/**
+ * @brief adds the node pointed to by new_node at the beggining
+ * of the lst. **lst then points to the new_node.
+ * 
+ * @param lst 
+ * @param new_node 
+ */
 void	ft_lstadd_front(t_list **lst, t_list *new_node);
+
+/**
+ * @brief returns the size of the list pointed to by lst.
+ * 
+ * @param lst 
+ * @return int 
+ */
 int		ft_lstsize(t_list *lst);
+
+/**
+ * @brief returns the last node of the list pointed to by lst.
+ * 
+ * @param lst 
+ * @return t_list* last node
+ */
 t_list	*ft_lstlast(t_list *lst);
+
+/**
+ * @brief adds the node pointed to by new_node at the end
+ * of the lst. **lst then points to the new_node.
+ * 
+ * @param lst 
+ * @param new_node 
+ */
 void	ft_lstadd_back(t_list **lst, t_list *new_node);
+
+/**
+ * @brief applies the delete function to each element of the
+ * list pointed to by lst.
+ * 
+ * @param lst 
+ * @param del 
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/**
+ * @brief applies the delete function to the element of the
+ * list pointed to by lst.
+ * 
+ * @param lst 
+ * @param del 
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+/**
+ * @brief applies the function pointed to by f to each element
+ * of thec list pointed to by lst. returns a pointer to the
+ * head of the modified list allocated on the heap. (undirect modfication)
+ * 
+ * @param lst 
+ * @param del to invoke upon failure to allocate new node
+ */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/**
+ * @brief applies the function pointed to by f to each element
+ * of the list pointed to by lst. (direct modification)
+ * 
+ * @param lst 
+ * @param del 
+ */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 /*GET_NEXT_LINE*/
+/**
+ * @brief returns the first new-line-terminated line from the
+ * file descriptor fd.
+ * 
+ * @param fd 
+ * @return char* 
+ */
 char	*get_next_line(int fd);
 
 /*PRINTF*/
+/**
+ * @brief print output containing values specified in the string
+ * pointed to by format.
+ * 
+ * @param format 
+ * @param ... 
+ * @return int nb of char printed upon success, negative upon error
+ */
 int		ft_printf(char const *format, ...);
 
 #endif
