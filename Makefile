@@ -37,7 +37,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	@echo "$(YELLOW)Removing objects files$(RESET)"
+	@echo "$(YELLOW)Removing libft objects files$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
