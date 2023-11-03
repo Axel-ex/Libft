@@ -2,7 +2,7 @@
 The Libft is the first project of the 42 cursus, aiming to implement some of the functions found in the standard C library. 
 
 # Usage
-``git clone`` and ``cd`` into the directory. Then hit ``make``. The makefile will generate a ``libft.a`` archive that can be compiled with your project giving you access to its content.
+`git clone` and `cd` into the directory. Then hit `make`. The makefile will generate a `libft.a` archive that can be compiled with your project giving you access to its content.
 
 # Functions
 | **Name** | **Prototype** | **description** | 
