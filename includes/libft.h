@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 18:06:04 by axelc             #+#    #+#             */
-/*   Updated: 2023/11/01 17:45:57 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/11/03 16:37:31 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 
 /**
  * @brief fills the first n bytes of the memory area pointed to by s
- * with the constant byte c.
+ * with the byte c.
  * 
  * @param s to fill
  * @param c to fill with
@@ -119,7 +119,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 /**
  * @brief returns a pointer to the first occurrence of
- * the character c in the string s.
+ * the character c in the string pointed to by s.
  * 
  * @param s to find in
  * @param c to find
@@ -129,7 +129,7 @@ char	*ft_strchr(const char *s, int c);
 
 /**
  * @brief returns a pointer to the last occurrence of
- * the character c in the string s.
+ * the character c in the string pointed to by s.
  * 
  * @param s to find in
  * @param c to find
@@ -149,7 +149,7 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 /**
- * @brief compares two strings.
+ * @brief compares n bytes of the strings pointed to by s1 and s2.
  * 
  * @param s1 
  * @param s2 
@@ -167,7 +167,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *nptr);
 
 /**
- * @brief checks if c is a char of the alphabet.
+ * @brief checks if c is a char which belongs to the alphabet.
  * 
  * @param c 
  * @return int 1 if true
@@ -322,7 +322,7 @@ void	ft_putchar_fd(char c, int fd);
  * @brief puts the string pointed to by s in the file descriptor
  * specified by fd.
  * 
- * @param c 
+ * @param s
  * @param fd 
  */
 void	ft_putstr_fd(char *s, int fd);
@@ -331,7 +331,7 @@ void	ft_putstr_fd(char *s, int fd);
  * @brief puts the string pointed to by s followd by a new line
  * in the file descriptor specified by fd.
  * 
- * @param c 
+ * @param s
  * @param fd 
  */
 void	ft_putendl_fd(char *s, int fd);
@@ -380,7 +380,7 @@ t_list	*ft_lstlast(t_list *lst);
 
 /**
  * @brief adds the node pointed to by new_node at the end
- * of the lst. **lst then points to the new_node.
+ * of the lst.
  * 
  * @param lst 
  * @param new_node 
